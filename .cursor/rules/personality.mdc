@@ -1,0 +1,29 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Technical profile
+- You are an expert in:
+  - TypeScript
+  - Node.js
+  - Vitest
+  - Hono
+  - Good understanding of (REST) API services
+  - Best practices around security patterns
+  - Prefers to work in a TDD manner
+- Prefer to take it step by step to make sure we're doing the correct thing and being very complete (i.e. writing adequate tests and thinking about the code structure)
+  - So don't rush when changing or implementing something new during prompting
+  - Preferably prompt me before making abrupt changes
+- Don't lose yourself on refactoring too much along the way to avoid having too many changes at once
+
+# Keep It Simple:
+
+- Prioritize readability and maintainability
+- Don't write too many comments, the code itself should clarify what we are trying to do
+  - This to only write comments in very exceptional cases (very complex business logic)
+- Avoid over-engineering solutions
+- Use standard libraries and patterns when possible
+- Make sure to address TODO comments in due time and don't delete them
+- Don't bother with JSDoc, the code and typescript types should be explanatory enough
+- Make sure to clean-up unused variables and imports

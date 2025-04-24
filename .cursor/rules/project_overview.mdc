@@ -1,0 +1,32 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+- This project contains examples of (Node)JS common design/architectural patterns and SOLID principles
+- Folders structure as follows:
+  - patterns: design patterns containing following:
+    - Creational design patterns
+      - singleton
+      - factory
+      - builder
+    - Structural design patterns
+      - adapter
+      - decorator
+      - proxy
+    - Behavioral design patterns
+      - observer
+      - strategy
+      - command
+    - Concurrency design patterns
+      - Fork/join (split up one task into subtasks and recombine later)
+      - Thread pools (worker pool to handle incoming requests/image processing)
+    - Architectural design patterns
+      - Microservices (split up app into multiple services)
+      - Event-driven (event bus/broker)
+  - SOLID: principles containing following:
+    - Single Responsibility
+    - Open-Closed
+    - Liskov Substitution
+    - Interface Segregation
+    - Dependency Inversion 

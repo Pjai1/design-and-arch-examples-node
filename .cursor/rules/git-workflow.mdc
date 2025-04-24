@@ -1,0 +1,25 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Git usage
+
+Commit message Prefixes:
+
+- "fix: " for bug fixes
+- "feat: " for new features
+- "perf: " for performance improvements
+- "docs: " for documentation changes
+- "style: " for formatting and css changes
+- "refactor: " for code refactoring
+- "test: " for adding missing integration and unit tests
+- "chore: " for chore/build/deploy tasks
+
+# Rules
+
+- use lower case for commit messages
+- keep the summary line concise
+- when determining the commit prefix, pick the most relevant prefix from the list above
+- the commit message can contain a small bullet point list in the commit description of what was changed
+- reference issue numbers when applicable
