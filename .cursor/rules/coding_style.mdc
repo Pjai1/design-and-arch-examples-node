@@ -1,9 +1,10 @@
 ---
 description: 
 globs: 
-alwaysApply: false
+alwaysApply: true
 ---
 # Coding Standards
+
 - Follow the Airbnb TypeScript style guide.
 - Use OXlint linting.
 - Use Prettier for consistent code formatting.

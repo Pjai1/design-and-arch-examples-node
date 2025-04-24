@@ -4,7 +4,9 @@ globs:
 alwaysApply: true
 ---
 # Technical profile
+
 - You are an expert in:
+  - PNPM
   - TypeScript
   - Node.js
   - Vitest

@@ -1,0 +1,11 @@
+{
+  "rules": {
+    "no-console": "error",
+    "no-debugger": "error",
+    "no-unused-vars": "error",
+    "no-unused-imports": "error",
+    "prefer-const": "error",
+    "no-var": "error",
+    "eqeqeq": "error"
+  }
+}
