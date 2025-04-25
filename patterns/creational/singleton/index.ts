@@ -1,10 +1,3 @@
-/**
- * Singleton Pattern Implementation
- *
- * This example demonstrates a ConfigurationManager singleton that handles
- * application-wide configuration settings.
- */
-
 type Config = {
   environment: string;
   debug: boolean;

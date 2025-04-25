@@ -1,10 +1,3 @@
-/**
- * Factory Pattern Implementation
- *
- * This example demonstrates a DocumentFactory that creates different types of documents
- * (PDF, Word, etc.) based on the requested type.
- */
-
 interface Document {
   open(): void;
   save(): void;
