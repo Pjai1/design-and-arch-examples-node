@@ -1,6 +1,6 @@
 ---
-description: 
-globs: 
+description:
+globs:
 alwaysApply: true
 ---
 # Best practices for testing with Vitest
@@ -10,4 +10,4 @@ alwaysApply: true
 - Place test files alongside source files, not in a separate `__tests__` folder
 - Use mocking and stubbing for isolating dependencies
 - Implement proper test coverage analysis
-- When creating unit test, try to run then with `npm run test:ci`
+- When creating/adjusting unit test(s), try to run then with `pnpm run test:ci`

@@ -23,10 +23,6 @@ alwaysApply: true
 # Keep It Simple:
 
 - Prioritize readability and maintainability
-- Don't write too many comments, the code itself should clarify what we are trying to do
-  - This to only write comments in very exceptional cases (very complex business logic)
+- Don't write any comments unless completely necessary (complex business logic)
 - Avoid over-engineering solutions
 - Use standard libraries and patterns when possible
-- Make sure to address TODO comments in due time and don't delete them
-- Don't bother with JSDoc, the code and typescript types should be explanatory enough
-- Make sure to clean-up unused variables and imports

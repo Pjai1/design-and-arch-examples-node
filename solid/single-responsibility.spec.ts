@@ -1,27 +1,40 @@
 import { describe, it, expect, vi } from 'vitest';
-import { UserData, UserDisplay } from './single-responsibility';
+import { EmailNotificationService, SMSNotificationService, PushNotificationService } from './single-responsibility';
 
 describe('Single Responsibility Principle', () => {
-  describe('UserData', () => {
-    it('should save user data to database', () => {
-      const userData = new UserData('John Doe', 'john@example.com');
-      const consoleSpy = vi.spyOn(console, 'log');
+  const mockLogger = { info: vi.fn() };
 
-      userData.saveToDatabase();
+  describe('EmailNotificationService', () => {
+    it('should send email with correct configuration', () => {
+      const service = new EmailNotificationService({ apiKey: 'test-key', fromAddress: 'test@example.com' }, mockLogger);
 
-      expect(consoleSpy).toHaveBeenCalledWith('Saving user John Doe to database');
+      service.send('recipient@example.com', 'Test message');
+
+      expect(mockLogger.info).toHaveBeenCalledWith(
+        'Sending email to recipient@example.com from test@example.com: Test message',
+      );
     });
   });
 
-  describe('UserDisplay', () => {
-    it('should display user information', () => {
-      const userData = new UserData('John Doe', 'john@example.com');
-      const userDisplay = new UserDisplay(userData);
-      const consoleSpy = vi.spyOn(console, 'log');
+  describe('SMSNotificationService', () => {
+    it('should send SMS with correct configuration', () => {
+      const service = new SMSNotificationService({ apiKey: 'test-key', fromNumber: '+1234567890' }, mockLogger);
 
-      userDisplay.displayUser();
+      service.send('+9876543210', 'Test message');
 
-      expect(consoleSpy).toHaveBeenCalledWith('User: John Doe, Email: john@example.com');
+      expect(mockLogger.info).toHaveBeenCalledWith('Sending SMS to +9876543210 from +1234567890: Test message');
+    });
+  });
+
+  describe('PushNotificationService', () => {
+    it('should send push notification with correct configuration', () => {
+      const service = new PushNotificationService({ apiKey: 'test-key', appId: 'com.test.app' }, mockLogger);
+
+      service.send('user123', 'Test message');
+
+      expect(mockLogger.info).toHaveBeenCalledWith(
+        'Sending push notification to user123 from app com.test.app: Test message',
+      );
     });
   });
 });
