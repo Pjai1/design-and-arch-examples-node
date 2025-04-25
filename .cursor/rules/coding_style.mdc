@@ -12,7 +12,6 @@ alwaysApply: true
 - Use descriptive variable names with auxiliary verbs (e.g., isLoading, hasError).
 - Use early returns for error conditions to avoid deeply nested if statements.
 - Make sure to keep the (root/folder) README up to date with any changes that were made
-- Make sure to address TODO comments in due time and don't delete them
 - Don't bother with JSDoc, the code and typescript types should be explanatory enough
 - Make sure to clean-up unused variables and imports
 
