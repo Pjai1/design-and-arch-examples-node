@@ -5,7 +5,7 @@ alwaysApply: true
 ---
 # Project Rules
 
-- Node.js/TypeScript design patterns and SOLID examples
+- Node.js/TypeScript design patterns and SOLID examples (see README.md for specifics)
 - Main folders: `/solid` and `/patterns`
 - Use `pnpm` for package management
 - Commands: `test`, `test:ci`, `lint`, `format`, `lint:types`

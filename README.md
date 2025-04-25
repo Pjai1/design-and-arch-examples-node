@@ -11,6 +11,24 @@ This repository contains practical examples of design patterns and SOLID princip
   - Interface Segregation Principle (ISP)
   - Dependency Inversion Principle (DIP)
 - `patterns/`: Contains examples of common design patterns
+  - Creational Design Patterns
+    - Singleton
+    - Factory
+    - Builder
+  - Structural Design Patterns
+    - Adapter
+    - Decorator
+    - Proxy
+  - Behavioral Design Patterns
+    - Observer
+    - Strategy
+    - Command
+  - Concurrency Design Patterns
+    - Fork/Join (split up one task into subtasks and recombine later)
+    - Thread Pools (worker pool to handle incoming requests/image processing)
+  - Architectural Design Patterns
+    - Microservices (split up app into multiple services)
+    - Event-driven (event bus/broker)
 
 ## Prerequisites
 
