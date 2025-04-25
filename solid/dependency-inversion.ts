@@ -12,6 +12,7 @@ class BadMySQLDatabase {
   }
 }
 
+// oxlint-disable-next-line eslint-no-unused-vars
 class BadUserService {
   private database: BadMySQLDatabase;
 
@@ -42,23 +43,21 @@ export class MongoDB implements Database {
 }
 
 export class UserService {
-  constructor(private database: Database) {} // Depends on abstraction
+  constructor(private database: Database) {}
 
   saveUser(user: string) {
     this.database.save(user);
   }
 }
 
-// Usage example
 const mysqlDatabase = new MySQLDatabase();
 const mongoDatabase = new MongoDB();
 
-// We can easily switch between different database implementations
 const userServiceWithMySQL = new UserService(mysqlDatabase);
 const userServiceWithMongo = new UserService(mongoDatabase);
 
-userServiceWithMySQL.saveUser('John Doe'); // Uses MySQL
-userServiceWithMongo.saveUser('Jane Doe'); // Uses MongoDB
+userServiceWithMySQL.saveUser('John Doe');
+userServiceWithMongo.saveUser('Jane Doe');
 
 // Another example with logging
 export interface Logger {
@@ -91,5 +90,5 @@ const fileLogger = new FileLogger();
 const appWithConsole = new Application(consoleLogger);
 const appWithFile = new Application(fileLogger);
 
-appWithConsole.doSomething(); // Logs to console
-appWithFile.doSomething(); // Logs to file
+appWithConsole.doSomething();
+appWithFile.doSomething();

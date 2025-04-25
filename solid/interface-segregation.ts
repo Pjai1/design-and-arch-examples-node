@@ -11,6 +11,7 @@ interface BadWorker {
   sleep(): void;
 }
 
+// oxlint-disable-next-line eslint-no-unused-vars
 class BadHumanWorker implements BadWorker {
   work() {
     console.log('Human is working');
@@ -25,6 +26,7 @@ class BadHumanWorker implements BadWorker {
   }
 }
 
+// oxlint-disable-next-line eslint-no-unused-vars
 class BadRobotWorker implements BadWorker {
   work() {
     console.log('Robot is working');
@@ -73,7 +75,6 @@ export class Robot implements Workable {
   }
 }
 
-// Usage example
 function makeWork(worker: Workable) {
   worker.work();
 }
@@ -89,9 +90,7 @@ function makeSleep(sleeper: Sleepable) {
 const human = new Human();
 const robot = new Robot();
 
-makeWork(human); // Works fine
-makeWork(robot); // Works fine
-makeEat(human); // Works fine
-makeSleep(human); // Works fine
-// makeEat(robot);  // Type error: Robot doesn't implement Eatable
-// makeSleep(robot); // Type error: Robot doesn't implement Sleepable
+makeWork(human);
+makeWork(robot);
+makeEat(human);
+makeSleep(human);
