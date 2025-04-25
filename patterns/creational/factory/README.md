@@ -2,28 +2,36 @@
 
 The Factory Pattern is a creational design pattern that provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created.
 
-## Implementation Details
+## Use Cases
 
-This implementation demonstrates a `DocumentFactory` that creates different types of documents (PDF, Word) based on the requested type. The pattern is implemented using:
+- When you need to create different types of objects that share a common interface
+- When the exact type of object needed isn't known until runtime
+- When you want to encapsulate the object creation logic
+- When you want to make it easy to add new types of objects
+
+## Implementation
+
+The Factory pattern is implemented by:
 
 1. A `Document` interface that defines the common operations all documents must implement
 2. Concrete implementations (`PDFDocument` and `WordDocument`) that implement the interface
 3. A factory class (`DocumentFactory`) that handles the creation of document objects
 
-## Usage Example
+## Example
 
 ```typescript
-import { DocumentFactory } from './index';
-
-// Create a PDF document
-const pdfDoc = DocumentFactory.createDocument('pdf', 'report.pdf');
-pdfDoc.open(); // Outputs: Opening PDF document: report.pdf
-pdfDoc.save(); // Outputs: Saving PDF document: report.pdf
-
-// Create a Word document
-const wordDoc = DocumentFactory.createDocument('word', 'report.docx');
-wordDoc.open(); // Outputs: Opening Word document: report.docx
-wordDoc.print(); // Outputs: Printing Word document: report.docx
+class DocumentFactory {
+  static createDocument(type: string, name: string): Document {
+    switch (type) {
+      case 'pdf':
+        return new PDFDocument(name);
+      case 'word':
+        return new WordDocument(name);
+      default:
+        throw new Error(`Unknown document type: ${type}`);
+    }
+  }
+}
 ```
 
 ## Benefits
@@ -33,9 +41,9 @@ wordDoc.print(); // Outputs: Printing Word document: report.docx
 - Provides a single point of control for object creation
 - Promotes loose coupling between client code and concrete implementations
 
-## When to Use
+## Considerations
 
-- When you need to create different types of objects that share a common interface
-- When the exact type of object needed isn't known until runtime
-- When you want to encapsulate the object creation logic
-- When you want to make it easy to add new types of objects
+- Can lead to a large number of classes
+- May be overkill for simple object creation
+- Can make the code more complex
+- May violate the Open/Closed Principle if not designed carefully

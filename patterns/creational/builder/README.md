@@ -21,21 +21,32 @@ The Builder pattern is implemented by:
 ## Example
 
 ```typescript
-import { BobTheBuilder } from './index';
+class BobTheBuilder {
+  private user: User;
 
-// Creating a user with only required fields
-const builder = new BobTheBuilder();
-const user1 = builder.setFirstName('John').setLastName('Doe').build();
+  constructor() {
+    this.user = {
+      firstName: '',
+      lastName: '',
+    };
+  }
 
-// Creating a user with all fields
-const user2 = builder
-  .setFirstName('Jane')
-  .setLastName('Smith')
-  .setAge(30)
-  .setEmail('jane.smith@example.com')
-  .setPhone('123-456-7890')
-  .setAddress('123 Main St')
-  .build();
+  setFirstName(firstName: string): BobTheBuilder {
+    this.user.firstName = firstName;
+    return this;
+  }
+
+  setLastName(lastName: string): BobTheBuilder {
+    this.user.lastName = lastName;
+    return this;
+  }
+
+  // Other methods...
+
+  build(): User {
+    return this.user;
+  }
+}
 ```
 
 ## Benefits
