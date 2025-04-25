@@ -8,7 +8,8 @@
     "test:ci": "vitest run",
     "lint": "oxlint",
     "format": "prettier --write .",
-    "typecheck": "tsc --noEmit"
+    "lint:types": "tsc --noEmit",
+    "build:solid": "tsc -p solid/tsconfig.json"
   },
   "keywords": [
     "typescript",
