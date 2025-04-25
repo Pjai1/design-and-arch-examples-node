@@ -1,82 +1,56 @@
 /**
  * Liskov Substitution Principle (LSP) Example
  *
- * Objects of a superclass should be replaceable with objects of its subclasses without breaking the application.
+ * The LSP states that objects of a superclass should be replaceable with objects of its subclasses
+ * without breaking the application. Subclasses should not weaken preconditions or strengthen postconditions.
  */
 
-// Bad Example: Violating LSP
-class BadBird {
-  fly() {
+// Bad implementation violating LSP
+export class Bird {
+  fly(): void {
     console.log('I can fly');
   }
 }
 
-class BadPenguin extends BadBird {
-  // Penguin can't fly, but it's forced to implement fly()
-  fly() {
-    throw new Error("Penguins can't fly!");
+export class PenguinBad extends Bird {
+  fly(): void {
+    throw new Error('I cannot fly');
   }
 }
 
-// Good Example: Following LSP
-export interface Bird {
-  move(): void;
+export function makeBirdFlyBad(bird: Bird): void {
+  bird.fly();
 }
 
-export class FlyingBird implements Bird {
-  move() {
-    console.log('I can fly');
+// Good implementation following LSP
+export interface BirdGood {
+  eat(): void;
+}
+
+export interface FlyingBirdGood extends BirdGood {
+  fly(): void;
+}
+
+export class ParrotGood implements FlyingBirdGood {
+  eat(): void {
+    console.log('Parrot is eating');
+  }
+
+  fly(): void {
+    console.log('Parrot is flying');
   }
 }
 
-export class Penguin implements Bird {
-  move() {
-    console.log('I can swim');
+export class PenguinGood implements BirdGood {
+  eat(): void {
+    console.log('Penguin is eating');
   }
 }
 
-// Usage example
-function makeBirdMove(bird: Bird) {
-  bird.move();
+export function makeBirdEatGood(bird: BirdGood): void {
+  bird.eat();
 }
 
-const flyingBird = new FlyingBird();
-const penguin = new Penguin();
-
-makeBirdMove(flyingBird); // Outputs: I can fly
-makeBirdMove(penguin); // Outputs: I can swim
-
-// Another example with shapes
-export interface Shape {
-  getArea(): number;
+export function makeBirdFlyGood(bird: FlyingBirdGood): void {
+  bird.fly();
 }
-
-export class Rectangle implements Shape {
-  constructor(
-    private width: number,
-    private height: number,
-  ) {}
-
-  getArea(): number {
-    return this.width * this.height;
-  }
-}
-
-export class Square implements Shape {
-  constructor(private side: number) {}
-
-  getArea(): number {
-    return this.side * this.side;
-  }
-}
-
-// Both Rectangle and Square can be used interchangeably where Shape is expected
-function printArea(shape: Shape) {
-  console.log(`Area: ${shape.getArea()}`);
-}
-
-const rectangle = new Rectangle(4, 5);
-const square = new Square(4);
-
-printArea(rectangle); // Outputs: Area: 20
-printArea(square); // Outputs: Area: 16

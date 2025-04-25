@@ -1,36 +1,37 @@
-import { describe, it, expect, vi } from 'vitest';
-import { FlyingBird, Penguin, Rectangle, Square } from './liskov-substitution';
+import { describe, it, expect } from 'vitest';
+import {
+  Bird,
+  PenguinBad,
+  makeBirdFlyBad,
+  ParrotGood,
+  PenguinGood,
+  makeBirdEatGood,
+  makeBirdFlyGood,
+} from './liskov-substitution';
 
 describe('Liskov Substitution Principle', () => {
-  describe('Bird Movement', () => {
-    it('should allow flying bird to move', () => {
-      const bird = new FlyingBird();
-      const consoleSpy = vi.spyOn(console, 'log');
-
-      bird.move();
-
-      expect(consoleSpy).toHaveBeenCalledWith('I can fly');
+  describe('Bad Implementation', () => {
+    it('should allow a regular bird to fly', () => {
+      const bird = new Bird();
+      expect(() => makeBirdFlyBad(bird)).not.toThrow();
     });
 
-    it('should allow penguin to move', () => {
-      const penguin = new Penguin();
-      const consoleSpy = vi.spyOn(console, 'log');
-
-      penguin.move();
-
-      expect(consoleSpy).toHaveBeenCalledWith('I can swim');
+    it('should throw when a penguin tries to fly', () => {
+      const penguin = new PenguinBad();
+      expect(() => makeBirdFlyBad(penguin)).toThrow('I cannot fly');
     });
   });
 
-  describe('Shape Area', () => {
-    it('should calculate rectangle area correctly', () => {
-      const rectangle = new Rectangle(4, 5);
-      expect(rectangle.getArea()).toBe(20);
+  describe('Good Implementation', () => {
+    it('should allow a parrot to eat and fly', () => {
+      const parrot = new ParrotGood();
+      expect(() => makeBirdEatGood(parrot)).not.toThrow();
+      expect(() => makeBirdFlyGood(parrot)).not.toThrow();
     });
 
-    it('should calculate square area correctly', () => {
-      const square = new Square(4);
-      expect(square.getArea()).toBe(16);
+    it('should allow a penguin to eat but not fly', () => {
+      const penguin = new PenguinGood();
+      expect(() => makeBirdEatGood(penguin)).not.toThrow();
     });
   });
 });
