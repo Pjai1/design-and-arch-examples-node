@@ -1,32 +1,30 @@
 ---
-description: 
-globs: 
+description:
+globs:
 alwaysApply: true
 ---
-- This project contains examples of (Node)JS common design/architectural patterns and SOLID principles
-- Folders structure as follows:
-  - patterns: design patterns containing following:
-    - Creational design patterns
-      - singleton
-      - factory
-      - builder
-    - Structural design patterns
-      - adapter
-      - decorator
-      - proxy
-    - Behavioral design patterns
-      - observer
-      - strategy
-      - command
-    - Concurrency design patterns
-      - Fork/join (split up one task into subtasks and recombine later)
-      - Thread pools (worker pool to handle incoming requests/image processing)
-    - Architectural design patterns
-      - Microservices (split up app into multiple services)
-      - Event-driven (event bus/broker)
-  - SOLID: principles containing following:
-    - Single Responsibility
-    - Open-Closed
-    - Liskov Substitution
-    - Interface Segregation
-    - Dependency Inversion 
+# Project Rules
+
+- Node.js/TypeScript design patterns and SOLID examples
+- Main folders: `/solid` and `/patterns`
+- Use `pnpm` for package management
+- Commands: `test`, `test:ci`, `lint`, `format`, `lint:types`
+
+## Key Components
+
+- SOLID principles examples
+- Design patterns implementations
+- Architectural patterns demonstrations
+- Testing examples
+- Documentation
+
+## Project Structure
+
+- `/solid` - SOLID principles examples
+- `/patterns` - Design patterns
+
+## Getting Started
+
+1. Install dependencies: `pnpm install`
+2. Run tests: `pnpm test:ci`
+3. Build project: `pnpm build:[folder]`

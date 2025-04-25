@@ -3,9 +3,21 @@ description:
 globs:
 alwaysApply: true
 ---
+# Coding Style Guidelines
+
+- Use TypeScript for all new code
+- Follow the Airbnb JavaScript Style Guide
+- Use meaningful variable and function names
+- Keep functions small and focused
+- Add appropriate comments and documentation
+- Use consistent indentation (2 spaces)
+- Follow SOLID principles
+- Write clean, maintainable code
+- Use proper error handling
+- Implement proper logging
+
 # Coding Standards
 
-- Follow the Airbnb TypeScript style guide.
 - Use OXlint linting.
 - Use Prettier for consistent code formatting.
 - Prefer functional and declarative programming patterns. Use classes judiciously when they provide clear benefits (e.g., for implementing interfaces, managing complex state, or encapsulating related behavior).

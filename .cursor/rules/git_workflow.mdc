@@ -1,8 +1,21 @@
 ---
-description: 
-globs: 
+description:
+globs:
 alwaysApply: true
 ---
+# Git Workflow Guidelines
+
+- Use feature branches for new development
+- Follow conventional commits
+- Keep commits small and focused
+- Write clear commit messages
+- Use pull requests for code review
+- Squash merge feature branches
+- Keep main branch clean and deployable
+- Use meaningful branch names
+- Regularly pull from main
+- Resolve conflicts promptly
+
 # Git usage
 
 Commit message Prefixes:

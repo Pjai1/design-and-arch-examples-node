@@ -26,3 +26,10 @@ alwaysApply: true
 - Don't write any comments unless completely necessary (complex business logic)
 - Avoid over-engineering solutions
 - Use standard libraries and patterns when possible
+
+# Communication Rules
+
+- Be concise and direct
+- Focus on practical solutions
+- Use code examples when helpful
+- Ask clarifying questions when needed

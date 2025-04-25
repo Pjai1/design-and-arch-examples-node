@@ -3,11 +3,10 @@ description:
 globs:
 alwaysApply: true
 ---
-# Best practices for testing with Vitest
+# Testing Rules
 
 - Use `import` for test, describe, and other testing functions
 - Name unit test files with the `spec` suffix
-- Place test files alongside source files, not in a separate `__tests__` folder
-- Use mocking and stubbing for isolating dependencies
-- Implement proper test coverage analysis
-- When creating/adjusting unit test(s), try to run then with `pnpm run test:ci`
+- Place test files alongside source files
+- Use mocking and stubbing for dependencies
+- Run tests with `pnpm run test:ci` when making changes
