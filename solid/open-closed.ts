@@ -5,6 +5,7 @@
  */
 
 // Bad Example: A class that needs to be modified for each new shape
+// oxlint-disable-next-line no-unused-vars
 class AreaCalculator {
   calculateArea(shape: any) {
     if (shape.type === 'rectangle') {
@@ -12,7 +13,6 @@ class AreaCalculator {
     } else if (shape.type === 'circle') {
       return Math.PI * shape.radius * shape.radius;
     }
-    // We need to modify this class every time we add a new shape
   }
 }
 
@@ -40,19 +40,12 @@ export class Circle implements Shape {
   }
 }
 
-export class AreaCalculatorOCP {
-  calculateArea(shape: Shape): number {
-    return shape.calculateArea();
-  }
-}
-
 // Usage example
 const rectangle = new Rectangle(5, 10);
 const circle = new Circle(7);
-const calculator = new AreaCalculatorOCP();
 
-console.log(`Rectangle area: ${calculator.calculateArea(rectangle)}`);
-console.log(`Circle area: ${calculator.calculateArea(circle)}`);
+console.log(`Rectangle area: ${rectangle.calculateArea()}`);
+console.log(`Circle area: ${circle.calculateArea()}`);
 
 // Adding a new shape is easy - just implement the Shape interface
 export class Triangle implements Shape {
@@ -67,4 +60,4 @@ export class Triangle implements Shape {
 }
 
 const triangle = new Triangle(4, 6);
-console.log(`Triangle area: ${calculator.calculateArea(triangle)}`);
+console.log(`Triangle area: ${triangle.calculateArea()}`);
